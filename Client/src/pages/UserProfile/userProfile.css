@@ -1,0 +1,54 @@
+.user-profile{
+    display: flex;
+    justify-content: space-between;
+}
+.user-box{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+.avatar-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-bio{
+    text-align: center;
+}
+
+.blog-box{
+    width: 65%;
+    padding: 20px;
+    background-color: #F5F7FA;
+}
+.blog-box .box-title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.blog{
+    display: flex;
+    margin-bottom: 20px;
+}
+.blog .thumbnail{
+    width: 35%;
+    margin-right: 5px;
+}
+.blog .title{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.blog-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.blog-info-wrapper .rs-icon:hover{
+    transition: 0.3s;
+    color: #1B6D96;
+}

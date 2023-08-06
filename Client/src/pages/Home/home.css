@@ -1,0 +1,15 @@
+.home-blog{
+    display: flex;
+    margin-bottom: 20px;
+}
+.home-blog img{
+    max-width: 35%;
+    background-color: tomato;
+}
+.home-blog div{
+    display: flex;
+    flex-direction: column;
+}
+.home-blog strong{
+    font-size: 2rem;
+}

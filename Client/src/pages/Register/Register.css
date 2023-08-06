@@ -1,0 +1,37 @@
+#register-page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#auth-page h1{
+    font-size: 4rem;
+    text-align: center;
+}
+#register-page h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 100px;
+}
+#register-page form{
+    width: 30vw;
+    border: solid black 1px;
+    padding: 10px 30px;
+    border-radius: 17px;
+}
+#register-page form label{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+#register-page form input{
+    width: 100%;
+}
+#register-page form .btnHolder{
+    margin-top: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+#register-page form .btnHolder button{
+    padding: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+}

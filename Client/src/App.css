@@ -1,0 +1,75 @@
+html {
+    scroll-behavior: smooth;
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+    /* font: inherit; */
+}
+body{
+    min-height: 100vh;
+    background-color: #fff;
+}
+img, picture, video, svg{
+    width: 100%;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style-type: none;
+}
+
+.nav-bar{
+    position: fixed;
+    width: 100vw;
+    padding: 10px 200px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 3;
+}
+.nav-bar div{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-bottom: 7px;
+}
+.nav-bar nav{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-bar .auth-btn .reg-btn{
+    margin-left: 10px;
+}
+
+main{
+    padding: 145px 200px 0px 200px;
+}
+
+.rs-dropdown-toggle{
+    cursor: pointer;
+    border: none;
+    /* border-radius: 50%; */
+}
+
+.rs-dropdown-item{
+    font-size: 1.5rem;
+}
+
+#goToTop{
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    cursor: pointer;
+    font-size: 2rem;
+    background-color: #1E90FF;
+    padding: 0px 3px 3px 3px;
+    border: none;
+    border-radius: 50%;
+}
