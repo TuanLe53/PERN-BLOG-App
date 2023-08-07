@@ -40,7 +40,7 @@ npm install
 npm install
 ```
 
-- Run both client and server
+- Start both client and server
 
 ```
 npm run dev
