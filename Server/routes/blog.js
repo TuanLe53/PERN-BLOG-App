@@ -8,7 +8,7 @@ const verifyJWT = require("../middleware/verifyJWT");
 
 router.get("/blogs", PostController.Posts)
 router.get("/blog/:id", PostController.Post)
-router.get("/blogs/:user_id", verifyJWT, PostController.UserPosts)
+router.get("/blogs/:user_id", PostController.UserPosts)
 router.post("/blog/:blog_id/edit", verifyJWT, PostController.EditPostController)
 router.get("/blog/:blog_id/comment", commentController.GetComment)
 router.post("/blog/:blog_id/comment", verifyJWT, commentController.CreateComment)

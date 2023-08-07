@@ -9,7 +9,7 @@ const verifyJWT = require("../middleware/verifyJWT");
 router.post("/register", userController.registerUser)
 router.post("/login", userController.loginUser)
 router.get("/logout", userController.logoutUser)
-router.get("/profile/:user_id", verifyJWT, userController.getUserInfo)
+router.get("/profile/:user_id", userController.getUserInfo)
 
 router.put("/update/bio/:user_id", verifyJWT, userController.updateBio)
 router.put("/update/avatar/:user_id", verifyJWT, upload.uploadAvatar.single("avatar"), (req, res) => {
