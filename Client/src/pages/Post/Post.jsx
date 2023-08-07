@@ -12,7 +12,7 @@ import avatar from "../../assets/avatar/avatar.png"
 
 export default function Post() {
     const params = useParams()
-    const {user} = useContext(AuthContext)
+    const {user, accessToken} = useContext(AuthContext)
 
     const [blog, setBlog] = useState();
     const [content, setContent] = useState("");
@@ -44,7 +44,11 @@ export default function Post() {
         }
         const res = await fetch(`http://localhost:3500/blog/${params.post_id}/comment`, {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + String(accessToken.accessToken)
+            },
+            credentials: "include",
             body: JSON.stringify(comment)
         })
         const data = res.json()
@@ -79,7 +83,7 @@ export default function Post() {
                     </Container>
                     <div className="comment-box" id="comment-box">
                         <form onSubmit={handleComment} className="add-comment">
-                            <input type="text" value={content} onChange={e => setContent(e.target.value)} placeholder="Share your thoughts" />
+                            <input type="text" value={content} onChange={e => setContent(e.target.value)} placeholder="Share your thoughts" required/>
                             <button type="submit">
                                 Send
                             </button>

@@ -53,7 +53,7 @@ export default function UserProfile() {
 
 function Box() {
     const params = useParams()
-    const { user } = useContext(AuthContext)
+    const { user, accessToken } = useContext(AuthContext)
 
     const [info, setInfo] = useState()
     const fetchUser = async () => {
@@ -75,6 +75,9 @@ function Box() {
 
         let res = await fetch(`http://localhost:3500/update/avatar/${user.user_id}`, {
             method: "PUT",
+            headers: {
+                'Authorization': 'Bearer ' + String(accessToken.accessToken)
+            },
             body: data,
             credentials: "include"
         })
@@ -95,6 +98,7 @@ function Box() {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + String(accessToken.accessToken)
             },
             body: JSON.stringify(data),
             credentials: "include"

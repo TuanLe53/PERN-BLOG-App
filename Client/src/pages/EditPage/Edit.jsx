@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DOMPurify from "dompurify";
+import AuthContext from "../../context/AuthContext";
 
 const  modules  = {
     toolbar: [
@@ -22,7 +23,7 @@ const  modules  = {
 
 export default function Edit() {
     const params = useParams();
-
+    const {accessToken} = useContext(AuthContext)
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -49,7 +50,8 @@ export default function Edit() {
             method: "POST",
             headers:{
                 "Content-Type": "application/json",
-                "Accept": "text/html; charset=UTF-8"
+                "Accept": "text/html; charset=UTF-8",
+                'Authorization': 'Bearer ' + String(accessToken.accessToken)
             },
             body: JSON.stringify(blog),
             credentials: 'include',

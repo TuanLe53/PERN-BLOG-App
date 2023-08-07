@@ -28,7 +28,7 @@ const  modules  = {
 
 
 export default function Upload() {
-    const {user} = useContext(AuthContext)
+    const {user, accessToken} = useContext(AuthContext)
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -53,6 +53,9 @@ export default function Upload() {
 
         const res = await fetch("http://localhost:3500/post", {
             method: "POST",
+            headers: {
+                'Authorization': 'Bearer ' + String(accessToken.accessToken)
+            },
             body: formData,
             credentials: 'include',
         })
