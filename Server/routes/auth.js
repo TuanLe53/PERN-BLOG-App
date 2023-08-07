@@ -3,14 +3,16 @@ const router = express.Router();
 const userController = require("../controller/userController");
 const upload = require('../middleware/upload');
 const pool = require("../db/db");
+const verifyJWT = require("../middleware/verifyJWT");
+
 
 router.post("/register", userController.registerUser)
 router.post("/login", userController.loginUser)
 router.get("/logout", userController.logoutUser)
-router.get("/profile/:user_id", userController.getUserInfo)
+router.get("/profile/:user_id", verifyJWT, userController.getUserInfo)
 
-router.put("/update/bio/:user_id", userController.updateBio)
-router.put("/update/avatar/:user_id", upload.uploadAvatar.single("avatar"), (req, res) => {
+router.put("/update/bio/:user_id", verifyJWT, userController.updateBio)
+router.put("/update/avatar/:user_id", verifyJWT, upload.uploadAvatar.single("avatar"), (req, res) => {
     let user_id = req.params.user_id
     let url = "http://localhost:3500/images/avatar/" + req.file.filename
 

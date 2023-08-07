@@ -8,12 +8,12 @@ const verifyJWT = require("../middleware/verifyJWT");
 
 router.get("/blogs", PostController.Posts)
 router.get("/blog/:id", PostController.Post)
-router.get("/blogs/:user_id", PostController.UserPosts)
-router.post("/blog/:blog_id/edit", PostController.EditPostController)
-router.get("/blog/:blog_id/comment", commentController.GetComment)
-router.post("/blog/:blog_id/comment", commentController.CreateComment)
+router.get("/blogs/:user_id", verifyJWT, PostController.UserPosts)
+router.post("/blog/:blog_id/edit", verifyJWT, PostController.EditPostController)
+router.get("/blog/:blog_id/comment", verifyJWT, commentController.GetComment)
+router.post("/blog/:blog_id/comment", verifyJWT, commentController.CreateComment)
 
-router.post("/post", upload.uploadThumbnail.single("thumbnail"), (req, res) => {
+router.post("/post", verifyJWT, upload.uploadThumbnail.single("thumbnail"), (req, res) => {
     const { user_id, content, title } = req.body
     let url = null
     if (req.file) {
